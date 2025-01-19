@@ -21,14 +21,49 @@ void Phonebook :: addContact(){
     file<<phoneNum<<","<<name<<","<<address<<","<<"\n";
     file.close();
 }
+<<<<<<< HEAD
+void Phonebook :: showContacts(){ // Fucked by Aryan
+    file.open("info.csv",ios :: in);
+    getline(file,phoneNum,',');
+    getline(file,name,',');
+    getline(file,address,',');
+    //  // Check if the file is empty
+    // file.seekg(0, ios::end); // Move to the end of the file
+    // if (file.tellg() == 0) { // Check if the position is 0 (empty file)
+    //     cout << "The file is empty." << endl;
+    //     file.close();
+    //     return;
+    // }
+    //  // Reset file pointer to the beginning
+    // file.seekg(0, ios::beg);
+    
+    while(!file.eof()){
+        cout<<"Phone Number: "<<phoneNum<<endl;
+        cout<<"Phone Name: "<<name<<endl;
+        cout<<"Phone Address: "<<address<<endl;
+        getline(file,phoneNum,',');
+        getline(file,name,',');
+        getline(file,address,',');
+    }
+    file.close();
+
+=======
 void Phonebook :: showContacts(){
 //aarti da code
+>>>>>>> b59cf6acff42afd9923e4bed3ec29e158507aeaf
 }
+
+
 void Phonebook :: searchContact(){
 //aarti da code
 }
 
 int main(){
+<<<<<<< HEAD
+    Phonebook obj1;
+    //obj1.addContact();
+    obj1.showContacts();
+=======
     char choice;
     cout << "1 --> Add Contact ";
     cout << "2 --> Show Contacts ";
@@ -55,5 +90,6 @@ int main(){
     default:
 
     }
+>>>>>>> b59cf6acff42afd9923e4bed3ec29e158507aeaf
     return 0;
 }
