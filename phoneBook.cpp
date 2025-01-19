@@ -3,7 +3,7 @@
 #include<fstream>
 using namespace std;
 class Phonebook{
-    string phoneNum,name,address;
+    string phoneNum,name,address,search;
     fstream file;
     public:
     void addContact();
@@ -24,12 +24,32 @@ void Phonebook :: addContact(){
 void Phonebook :: showContacts(){
 
 }
-void Phonebook :: searchContact(){
+void Phonebook :: searchContact(){  //aarti's code
+       cout<<"Enter Phone Number::"; 
+       getline(cin,search);
+       file.open("info.csv",ios::in);
+       
+       getline(file,phoneNum,',');
+       getline(file,name,',');
+       getline(file,address,'\n');
+       while(!file.eof()){
+        if(phoneNum==search){
+        cout<<"Phone Number::"<<phoneNum<<endl;
+        cout<<"Phone Name::"<<name<<endl;
+        cout<<"Phone Address::"<<address<<endl;
+        }
+        getline(file,phoneNum,',');
+        getline(file,name,',');
+        getline(file,address,',');
+       }
+       file.close();
 
 }
 
 int main(){
     Phonebook obj1;
+
     obj1.addContact();
+    obj1.searchContact();
     return 0;
 }
