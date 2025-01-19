@@ -22,34 +22,14 @@ void Phonebook :: addContact(){
     file.close();
 }
 void Phonebook :: showContacts(){
-
+//aarti da code
 }
-void Phonebook :: searchContact(){  //aarti's code
-       cout<<"Enter Phone Number::"; 
-       getline(cin,search);
-       file.open("info.csv",ios::in);
-       
-       getline(file,phoneNum,',');
-       getline(file,name,',');
-       getline(file,address,'\n');
-       while(!file.eof()){
-        if(phoneNum==search){
-        cout<<"Phone Number::"<<phoneNum<<endl;
-        cout<<"Phone Name::"<<name<<endl;
-        cout<<"Phone Address::"<<address<<endl;
-        }
-        getline(file,phoneNum,',');
-        getline(file,name,',');
-        getline(file,address,',');
-       }
-       file.close();
+void Phonebook :: searchContact(){
 
 }
 
 int main(){
     Phonebook obj1;
-
     obj1.addContact();
-    obj1.searchContact();
     return 0;
 }
