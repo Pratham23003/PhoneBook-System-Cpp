@@ -27,7 +27,44 @@ void Phonebook :: showContacts(){
 void Phonebook :: searchContact(){
 //aarti da code
 }
+void Phonebook::deleteContact() {
+    string phoneToDelete, line;
+    vector<string> contacts;
+    bool contactFound = false;
 
+    cout << "Enter the phone number of the contact to delete: ";
+    getline(cin, phoneToDelete);
+
+    file.open("info.csv", ios::in);
+
+    while (getline(file, line)) {
+        size_t pos = line.find(",");
+        string phoneNumInFile = line.substr(0, pos);
+
+        if (phoneNumInFile == phoneToDelete) {
+            contactFound = true;
+        } else {
+            contacts.push_back(line);
+        }
+    }
+    file.close();
+
+    if (contactFound) {
+        file.open("info.csv", ios::out | ios::trunc);
+        if (!file.is_open()) {
+            cout << "Error: Unable to write to file!" << endl;
+            return;
+        }
+
+        for (const string &contact : contacts) {
+            file << contact << "\n";
+        }
+        file.close();
+        cout << "Contact deleted successfully!" << endl;
+    } else {
+        cout << "Contact not found!" << endl;
+    }
+}
 int main(){
     char choice;
     cout << "1 --> Add Contact ";
