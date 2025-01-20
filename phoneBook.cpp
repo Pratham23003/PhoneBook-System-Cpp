@@ -4,7 +4,7 @@
 #include <vector> // Needed for the deletion function
 using namespace std;
 class Phonebook{
-    string phoneNum,name,address;
+    string phoneNum,name,address,search;
     fstream file;
     public:
     void addContact();
@@ -23,11 +23,43 @@ void Phonebook :: addContact(){
     file<<phoneNum<<","<<name<<","<<address<<","<<"\n";
     file.close();
 }
-void Phonebook :: showContacts(){
-//aarti da code
+void Phonebook :: showContacts(){ 
+    file.open("info.csv",ios :: in);
+    getline(file,phoneNum,',');
+    getline(file,name,',');
+    getline(file,address,',');
+   
+    
+    while(!file.eof()){
+        cout<<"Phone Number: "<<phoneNum<<endl;
+        cout<<"Phone Name: "<<name<<endl;
+        cout<<"Phone Address: "<<address<<endl;
+        getline(file,phoneNum,',');
+        getline(file,name,',');
+        getline(file,address,',');
+    }
+    file.close();
 }
-void Phonebook :: searchContact(){
-//aarti da code
+    
+void Phonebook :: searchContact(){  //aarti's code
+       cout<<"Enter Phone Number::"; 
+       getline(cin,search);
+       file.open("info.csv",ios::in);
+
+       getline(file,phoneNum,',');
+       getline(file,name,',');
+       getline(file,address,'\n');
+       while(!file.eof()){
+        if(phoneNum==search){
+        cout<<"Phone Number::"<<phoneNum<<endl;
+        cout<<"Phone Name::"<<name<<endl;
+        cout<<"Phone Address::"<<address<<endl;
+        }
+        getline(file,phoneNum,',');
+        getline(file,name,',');
+        getline(file,address,',');
+       }
+       file.close();
 }
 
 void Phonebook::deleteContact() {
@@ -68,8 +100,6 @@ void Phonebook::deleteContact() {
         cout << "Contact not found!" << endl;
     }
 }
-
-
 int main(){
     char choice;
     cout << "1 --> Add Contact ";
