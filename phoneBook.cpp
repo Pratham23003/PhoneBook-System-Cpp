@@ -39,10 +39,27 @@ void Phonebook :: showContacts(){
     file.close();
 }
     
+void Phonebook :: searchContact(){  //aarti's code
+       cout<<"Enter Phone Number::"; 
+       getline(cin,search);
+       file.open("info.csv",ios::in);
 
-void Phonebook :: searchContact(){
-
+       getline(file,phoneNum,',');
+       getline(file,name,',');
+       getline(file,address,'\n');
+       while(!file.eof()){
+        if(phoneNum==search){
+        cout<<"Phone Number::"<<phoneNum<<endl;
+        cout<<"Phone Name::"<<name<<endl;
+        cout<<"Phone Address::"<<address<<endl;
+        }
+        getline(file,phoneNum,',');
+        getline(file,name,',');
+        getline(file,address,',');
+       }
+       file.close();
 }
+
 void Phonebook::deleteContact() {
     string phoneToDelete, line;
     vector<string> contacts;
