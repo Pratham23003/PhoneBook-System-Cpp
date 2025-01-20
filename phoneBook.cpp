@@ -14,10 +14,11 @@ class Phonebook{
 };
 void Phonebook :: addContact(){
     cout << "Enter Phone number :";
+    cin.ignore();
     getline(cin,phoneNum);
-    cout << "Enter Name :";
+    cout << "\nEnter Name :";
     getline(cin,name);
-    cout << "Enter Address :";
+    cout << "Enter Address :" << endl;
     getline(cin,address);
     file.open("info.csv",ios::out|ios::app);
     file<<phoneNum<<","<<name<<","<<address<<","<<"\n";
@@ -28,8 +29,6 @@ void Phonebook :: showContacts(){
     getline(file,phoneNum,',');
     getline(file,name,',');
     getline(file,address,',');
-   
-    
     while(!file.eof()){
         cout<<"Phone Number: "<<phoneNum<<endl;
         cout<<"Phone Name: "<<name<<endl;
@@ -40,9 +39,10 @@ void Phonebook :: showContacts(){
     }
     file.close();
 }
-    
+
 void Phonebook :: searchContact(){  //aarti's code
-       cout<<"Enter Phone Number::"; 
+       cout<<"Enter Phone Number :"; 
+       cin.ignore();
        getline(cin,search);
        file.open("info.csv",ios::in);
 
@@ -51,9 +51,9 @@ void Phonebook :: searchContact(){  //aarti's code
        getline(file,address,'\n');
        while(!file.eof()){
         if(phoneNum==search){
-        cout<<"Phone Number::"<<phoneNum<<endl;
-        cout<<"Phone Name::"<<name<<endl;
-        cout<<"Phone Address::"<<address<<endl;
+        cout<<"Phone Number :"<<phoneNum<<endl;
+        cout<<"Phone Name :"<<name<<endl;
+        cout<<"Phone Address :"<<address<<endl;
         }
         getline(file,phoneNum,',');
         getline(file,name,',');
@@ -68,6 +68,7 @@ void Phonebook::deleteContact() {
     bool contactFound = false;
 
     cout << "Enter the phone number of the contact to delete: ";
+    cin.ignore();
     getline(cin, phoneToDelete);
 
     file.open("info.csv", ios::in);
@@ -107,22 +108,25 @@ int main(){
     cout << "3 --> Search Contact ";
     cout << "4 --> Delete Contact ";
     cout << "5 --> Exit ";
+    cout << "Enter your choice :";
+    cin >> choice;
 
+    Phonebook obj;
     switch(choice){
         case '1':
-
+        obj.addContact();
         break;
         case '2':
-        //aarti da code
+        obj.showContacts();
         break;
         case '3':
-        //aryan da code
+        obj.searchContact();
         break;
         case '4':
-        //saksham da code
+        obj.deleteContact();
         break;
         case '5':
-        //exit ala
+        return 0;
         break;
     default:
     cout << "Invalid Selection ";
