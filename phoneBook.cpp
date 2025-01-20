@@ -21,15 +21,41 @@ void Phonebook :: addContact(){
     file<<phoneNum<<","<<name<<","<<address<<","<<"\n";
     file.close();
 }
-void Phonebook :: showContacts(){
+void Phonebook :: showContacts(){ // Fucked by Aryan
+    file.open("info.csv",ios :: in);
+    getline(file,phoneNum,',');
+    getline(file,name,',');
+    getline(file,address,',');
+    //  // Check if the file is empty
+    // file.seekg(0, ios::end); // Move to the end of the file
+    // if (file.tellg() == 0) { // Check if the position is 0 (empty file)
+    //     cout << "The file is empty." << endl;
+    //     file.close();
+    //     return;
+    // }
+    //  // Reset file pointer to the beginning
+    // file.seekg(0, ios::beg);
+    
+    while(!file.eof()){
+        cout<<"Phone Number: "<<phoneNum<<endl;
+        cout<<"Phone Name: "<<name<<endl;
+        cout<<"Phone Address: "<<address<<endl;
+        getline(file,phoneNum,',');
+        getline(file,name,',');
+        getline(file,address,',');
+    }
+    file.close();
 
 }
+
+
 void Phonebook :: searchContact(){
 
 }
 
 int main(){
     Phonebook obj1;
-    obj1.addContact();
+    //obj1.addContact();
+    obj1.showContacts();
     return 0;
 }
