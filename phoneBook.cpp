@@ -21,6 +21,7 @@ void Phonebook :: addContact(){
     file<<phoneNum<<","<<name<<","<<address<<","<<"\n";
     file.close();
 }
+<<<<<<< HEAD
 void Phonebook :: showContacts(){ // Fucked by Aryan
     file.open("info.csv",ios :: in);
     getline(file,phoneNum,',');
@@ -46,16 +47,49 @@ void Phonebook :: showContacts(){ // Fucked by Aryan
     }
     file.close();
 
+=======
+void Phonebook :: showContacts(){
+//aarti da code
+>>>>>>> b59cf6acff42afd9923e4bed3ec29e158507aeaf
 }
 
 
 void Phonebook :: searchContact(){
-
+//aarti da code
 }
 
 int main(){
+<<<<<<< HEAD
     Phonebook obj1;
     //obj1.addContact();
     obj1.showContacts();
+=======
+    char choice;
+    cout << "1 --> Add Contact ";
+    cout << "2 --> Show Contacts ";
+    cout << "3 --> Search Contact ";
+    cout << "4 --> Delete Contact ";
+    cout << "5 --> Exit ";
+
+    switch(choice){
+        case '1':
+
+        break;
+        case '2':
+        //aarti da code
+        break;
+        case '3':
+        //aryan da code
+        break;
+        case '4':
+        //saksham da code
+        break;
+        case '5':
+        //exit ala
+        break;
+    default:
+
+    }
+>>>>>>> b59cf6acff42afd9923e4bed3ec29e158507aeaf
     return 0;
 }
