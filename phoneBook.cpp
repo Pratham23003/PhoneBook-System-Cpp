@@ -3,7 +3,7 @@
 #include<fstream>
 using namespace std;
 class Phonebook{
-    string phoneNum,name,address;
+    string phoneNum,name,address,search;
     fstream file;
     public:
     void addContact();
@@ -25,7 +25,7 @@ void Phonebook :: showContacts(){
 //aarti da code
 }
 void Phonebook :: searchContact(){
-//aarti da code
+
 }
 void Phonebook::deleteContact() {
     string phoneToDelete, line;
@@ -66,31 +66,7 @@ void Phonebook::deleteContact() {
     }
 }
 int main(){
-    char choice;
-    cout << "1 --> Add Contact ";
-    cout << "2 --> Show Contacts ";
-    cout << "3 --> Search Contact ";
-    cout << "4 --> Delete Contact ";
-    cout << "5 --> Exit ";
-
-    switch(choice){
-        case '1':
-
-        break;
-        case '2':
-        //aarti da code
-        break;
-        case '3':
-        //aryan da code
-        break;
-        case '4':
-        //saksham da code
-        break;
-        case '5':
-        //exit ala
-        break;
-    default:
-
-    }
+    Phonebook obj1;
+    obj1.addContact();
     return 0;
 }
