@@ -62,7 +62,7 @@ void Phonebook :: searchContact(){  //aarti's code
        file.close();
 }
 
-void Phonebook::deleteContact() {
+void Phonebook::deleteContact() { //saksham's code
     string phoneToDelete, line;
     vector<string> contacts;
     bool contactFound = false;
