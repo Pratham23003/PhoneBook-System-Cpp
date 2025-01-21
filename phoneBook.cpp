@@ -21,9 +21,25 @@ void Phonebook :: addContact(){
     file<<phoneNum<<","<<name<<","<<address<<","<<"\n";
     file.close();
 }
-void Phonebook :: showContacts(){
-//aarti da code
+void Phonebook :: showContacts(){ 
+    file.open("info.csv",ios :: in);
+    getline(file,phoneNum,',');
+    getline(file,name,',');
+    getline(file,address,',');
+   
+    
+    while(!file.eof()){
+        cout<<"Phone Number: "<<phoneNum<<endl;
+        cout<<"Phone Name: "<<name<<endl;
+        cout<<"Phone Address: "<<address<<endl;
+        getline(file,phoneNum,',');
+        getline(file,name,',');
+        getline(file,address,',');
+    }
+    file.close();
 }
+    
+
 void Phonebook :: searchContact(){
 
 }
