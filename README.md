@@ -20,8 +20,8 @@ This project is a simple **Phonebook Application** implemented in C++ that allow
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Pratham23003/PhoneBook-System-Cpp
-   cd PhoneBook-System-Cpp
+   git clone <repository_url>
+   cd <repository_folder>
    ```
 2. Compile the program:
    ```bash
@@ -48,8 +48,3 @@ Enter your choice:
 - Select an option by entering the corresponding number.
 - Follow the prompts to add, view, search, or delete contacts.
 
-## Contributors
-- Pratham Deora (2320595)
-- Aarti Kumari (2320583)
-- Aryan (2320586)
-- Saksham Handa (2320599)
